@@ -25,7 +25,7 @@ class SecureController extends Controller
     public function sqli(string $id) {
         return new JsonResponse(
            DB::select(
-               DB::raw("select * from posts where id = ? limit 1"),
+               "select * from posts where id = ? limit 1",
                [$id]
            )
         );

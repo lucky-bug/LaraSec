@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Post;
+use App\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -14,7 +16,7 @@ class StorePost extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return $this->user()->can('create', Post::class);
     }
 
     /**

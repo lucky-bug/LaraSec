@@ -85,8 +85,8 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{route('secure.index')}}">Secure</a>
-                    <a href="{{route('vulnerable.index')}}">Vulnerable</a>
+                    <a href="{{route('secure.index')}}">Secure Routes</a>
+                    <a href="{{route('vulnerable.index')}}">Vulnerable Routes</a>
                 </div>
             </div>
         </div>

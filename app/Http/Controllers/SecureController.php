@@ -14,10 +14,6 @@ class SecureController extends Controller
 {
     use AuthenticatesUsers;
 
-    public function index() {
-        return view('secure.index');
-    }
-
     public function authenticate(Request $request) {
         if ($this->guard()->attempt($request->all())) {
             return new JsonResponse();
@@ -43,11 +39,22 @@ class SecureController extends Controller
         }
     }
 
-    public function create() {
-        return view('secure.create');
+    public function validation1(Request $request) {
+        $validated = $request->validate([
+            'title' => 'required|unique:posts|max:255',
+            'body' => 'required',
+        ]);
+
+        $post = new Post($validated);
+        $post->user_id = Auth::id();
+        $post->save();
+
+        return new JsonResponse(
+            $post
+        );
     }
 
-    public function validation(StorePost $request) {
+    public function validation2(StorePost $request) {
         $post = new Post($request->validated());
         $post->user_id = Auth::id();
         $post->save();

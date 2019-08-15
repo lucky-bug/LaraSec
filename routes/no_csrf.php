@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::post('/authenticate', 'SecureController@authenticate')->name('secure.authenticate');
 
 // Secure
-Route::post('/secure/validation', 'SecureController@validation')->name('secure.validation');
+Route::post('/secure/validation1', 'SecureController@validation1')->name('secure.validation1');
+Route::post('/secure/validation2', 'SecureController@validation2')->name('secure.validation2');
 
 // Vulnerable
 Route::post('/vulnerable/validation', 'VulnerableController@validation')->name('vulnerable.validation');
